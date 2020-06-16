@@ -58,14 +58,10 @@ class DiariesController extends Controller
 
     }
 
-    public function new (Request $request){
+    public function new (){
         $diary = new Diary();
         $diary->title = request('title');
         $diary->body = request('body');
-
-
-        $path = $request->file('image')->store('diaryimg');
-        $diary->image = $path;
 
         $diary->save();
 
