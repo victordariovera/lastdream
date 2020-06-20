@@ -13,18 +13,19 @@
 
 
 
-Route::get('/', 'DiariesController@main');
-Route::get('/diaries/', 'DiariesController@index');
-Route::get('/diaries/edit/{id}', 'DiariesController@edit');
-Route::post('/diaries/new','DiariesController@new');
-Route::get('/diaries/new',function () {
-    return view('new');
-});
-Route::post('/diaries/{id}','DiariesController@save');
-Route::get('/diaries/{id}', 'DiariesController@show');
-Route::get('/diaries/delete/{id}', 'DiariesController@delete');
-
-
-
-
-
+// Pagina Principal
+Route::get('/', 'DreamsController@home');
+// Editar una entrada
+Route::get('/dreams/edit/{id}', 'DreamsController@edit');
+// Crear una entrada nueva
+Route::get('/dreams/create','DreamsController@create');
+// Ver todas las entradas
+Route::get('/dreams/','DreamsController@index');
+// Guardar una entrada nueva
+Route::post('/dreams/', 'DreamsController@store');
+// Actualizar una entrada
+Route::patch('/dreams/{id}', 'DreamsController@update');
+// Ver una entrada en particular
+Route::get('/dreams/{id}', 'DreamsController@show');
+// Borrar una entrada
+Route::delete('/dreams/{id}', 'DreamsController@delete');
