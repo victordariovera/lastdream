@@ -38,9 +38,7 @@ class DreamsController extends Controller
 
         $dreams= Dream::latest()->take(4)->get();
 
-        return view('home', [
-            'dreams' =>  $dreams
-        ]);
+        return redirect('/');
     }
 
     public function show ($id)
@@ -48,7 +46,7 @@ class DreamsController extends Controller
        $dream= Dream::find($id);
        return view('/dreams/show', [
            'dream' => $dream
-           ]);
+        ]);
     }
 
     public function edit ($id)
@@ -56,7 +54,7 @@ class DreamsController extends Controller
         $dream= Dream::find($id);
         return view('dreams/edit', [
             'dream' => $dream
-            ]);
+        ]);
     }
 
     public function update($id)
@@ -77,9 +75,8 @@ class DreamsController extends Controller
         $dream = Dream::find($id);
         $dream->delete();
 
-        return view('dreams/index', [
-            'dreams' =>  Dream::all()
-        ]);
+        return redirect('dreams/');
+
     }
 
 
