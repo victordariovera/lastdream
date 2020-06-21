@@ -16,7 +16,7 @@
 // Pagina Principal
 Route::get('/', 'DreamsController@home');
 // Editar una entrada
-Route::get('/dreams/edit/{id}', 'DreamsController@edit');
+Route::get('/dreams/{id}/edit', 'DreamsController@edit');
 // Crear una entrada nueva
 Route::get('/dreams/create','DreamsController@create');
 // Ver todas las entradas

@@ -25,7 +25,7 @@
             <div class="row">
 
                 <div class="col-xs-6">
-        <a class="btn btn-primary" href="{{URL::to('/dreams/edit/'.$dream->id)}}" role="button">
+        <a class="btn btn-primary" href="{{URL::to('/dreams/'.$dream->id.'/edit/')}}" role="button">
             Editar
         </a>
     </div>
