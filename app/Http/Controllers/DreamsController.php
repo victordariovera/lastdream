@@ -32,6 +32,13 @@ class DreamsController extends Controller
     public function store ()
     {
         $dream = new Dream();
+
+
+        request()->validate([
+            'title' => 'required',
+            'body' => 'required'
+        ]);
+
         $dream->title = request('title');
         $dream->body = request('body');
         $dream->save();
@@ -60,6 +67,12 @@ class DreamsController extends Controller
     public function update($id)
     {
         $dream = Dream::find($id);
+
+        request()->validate([
+            'title' => ['required','max:255'],
+            'body' => 'required'
+        ]);
+
         $dream->title =  request('title');
         $dream->body = request('body');
         $dream->save();

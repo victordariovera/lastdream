@@ -10,11 +10,14 @@
         @method('PATCH')
         <div class="form-group">
           <label for="title">Título</label>
-          <input type="text" class="form-control" name="title" id="title" placeholder="Ingresá aca el titulo" value="{{$dream->title}}">
+          <input type="text" class="form-control {{ $errors->has('title') ? 'is-invalid' : ''}}" name="title" id="title" placeholder="Ingresá aca el titulo" value="{{old('title', $dream->title)}}">
+          @error('title')<div class="invalid-feedback">{{ $errors->first('title') }}</div> @enderror
+
         </div>
         <div class="form-group">
           <label for="body">Entrada de diario</label>
-          <textarea class="form-control" name="body" id="body" rows="3" placeholder="Como fue tu dia?">{{$dream->body}}</textarea>
+          <textarea class="form-control {{ $errors->has('body') ? 'is-invalid' : ''}}" name="body" id="body" rows="3" placeholder="Como fue tu dia?">{{old('body', $dream->body)}}</textarea>
+          @error('body')<div class="invalid-feedback">{{ $errors->first('body') }}</div> @enderror
         </div>
 
 

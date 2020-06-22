@@ -16,7 +16,7 @@ class CreateDreamsTable extends Migration
         Schema::create('dreams', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
-            $table->string('title');
+            $table->string('title','256');
             $table->text('body');
             $table->string('image')->nullable();
         });
