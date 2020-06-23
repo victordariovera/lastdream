@@ -26,7 +26,7 @@
                 <th scope="row">{{$dream->id}}</th>
                 <td>15/06/2020 20:14</td>
               <td>
-                <a href="{{URL::to('/dreams/'.$dream->id)}}">{{ str_limit($dream->title, 30) }}</a>
+                <a href="{{ route('dreams.show', $dream) }}">{{ str_limit($dream->title, 30) }}</a>
             </td>
             <td>
                     {{ str_limit($dream->body, 50) }}</td>
@@ -36,14 +36,14 @@
                     <div class="row">
 
                         <div class="col-xs-6">
-                            <a class="btn btn-primary" href="{{URL::to('/dreams/'.$dream->id.'/edit')}}" role="button">
+                            <a class="btn btn-primary" href="{{ route('dreams.edit', $dream) }}" role="button">
                             Editar
                             </a>
                         </div>
 
 
                         <div class="col-xs-6 ml-2">
-                            <a class="btn btn-danger" href="#" role="button" data-toggle="modal" data-target="#borrarModal" dreamId="{{ URL::to('/dreams/'.$dream->id) }}">
+                            <a class="btn btn-danger" href="#" role="button" data-toggle="modal" data-target="#borrarModal" dreamId="{{ route('dreams.delete', $dream) }}">
                                 Borrar
                             </a>
                       </button>
@@ -68,10 +68,10 @@
                   </button>
                 </div>
                 <div class="modal-body">
-                  <p>¿Estás seguro que querés borrar la entrada?</p>
+  w                <p>¿Estás seguro que querés borrar la entrada?</p>
                 </div>
                 <div class="modal-footer">
-                    <form action="{{URL::to('/dreams/')}}" method="post" id="formBorrarModal">
+                    <form action="" method="post" id="formBorrarModal">
                         <input class="btn btn-danger" type="submit" value="Borrar" />
 
                         @csrf

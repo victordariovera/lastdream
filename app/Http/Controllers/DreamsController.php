@@ -31,65 +31,38 @@ class DreamsController extends Controller
 
     public function store ()
     {
-        $dream = new Dream();
-
-
-        request()->validate([
-            'title' => 'required',
-            'body' => 'required'
-        ]);
-
-        $dream->title = request('title');
-        $dream->body = request('body');
-        $dream->save();
-
-        $dreams= Dream::latest()->take(4)->get();
-
-        return redirect('/');
+        Dream::create($this->validateDream());
+        return redirect('/dreams');
     }
 
-    public function show ($id)
+    public function show (Dream $dream)
     {
-       $dream= Dream::find($id);
-       return view('/dreams/show', [
-           'dream' => $dream
-        ]);
+       return view('/dreams/show', ['dream' => $dream]);
     }
 
-    public function edit ($id)
+    public function edit (Dream $dream)
     {
-        $dream= Dream::find($id);
-        return view('dreams/edit', [
-            'dream' => $dream
-        ]);
+        return view('dreams/edit', ['dream' => $dream]);
     }
 
-    public function update($id)
+    public function update(Dream $dream)
     {
-        $dream = Dream::find($id);
+        $dream->update($this->validateDream());
+        return view('/dreams/show', ['dream' => $dream]);
+    }
 
-        request()->validate([
+
+    public function delete (Dream $dream)
+    {
+        $dream->delete();
+        return redirect('dreams/');
+    }
+
+    protected function validateDream(){
+        return request()->validate([
             'title' => ['required','max:255'],
             'body' => 'required'
         ]);
-
-        $dream->title =  request('title');
-        $dream->body = request('body');
-        $dream->save();
-
-        return view('/dreams/show', [
-            'dream' => $dream
-            ]);
-    }
-
-
-    public function delete ($id)
-    {
-        $dream = Dream::find($id);
-        $dream->delete();
-
-        return redirect('dreams/');
-
     }
 
 
