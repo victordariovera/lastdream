@@ -15,18 +15,63 @@
 
 
 
- <title>lastDreams</title>
+ <title>{{config('app.name')}}</title>
 </head>
 <body>
     <header>
 
-        <div class="navbar navbar-dark bg-dark shadow-sm">
+        <div class="navbar navbar-light bg-light shadow-sm">
+
           <div class="container d-flex justify-content-between">
             <a href="{{URL::to('/')}}" class="navbar-brand d-flex align-items-center">
-               <strong>lastDreams</strong>
-               <a class="btn btn-primary" href="{{URL::to('/dreams/create')}}" role="button">Nuevo</a>
+               <strong>{{config('app.name')}}</strong>
             </a>
-          </div>
+
+
+
+
+
+                <!-- Authentication Links -->
+                @guest
+
+                    <div class="nav-item mr-auto">
+                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                    </div>
+
+                    @if (Route::has('register'))
+                        <div class="nav-item mr-auto">
+                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                        </div>
+                    @endif
+                @else
+
+                <a class="" href="{{ route('dreams.create') }}" role="button">Nuevo</a>
+
+
+                    <div class="nav-item dropdown">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            {{ Auth::user()->name }} <span class="caret"></span>
+                        </a>
+
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                               onclick="event.preventDefault();
+                                             document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                            </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                        </div>
+                    </div>
+
+
+                @endguest
+
+
+
+            </div>
         </div>
 
       </header>

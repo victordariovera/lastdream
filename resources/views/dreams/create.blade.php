@@ -5,7 +5,7 @@
 
 <div class="container my-1">
 
-    <form action="{{URL::to('/dreams/')}}" method="post">
+    <form action="{{ route('dreams.store')}}" method="post">
         @csrf
         @method('POST')
         <div class="form-group">

@@ -8,6 +8,12 @@ use App\Dream;
 class DreamsController extends Controller
 {
 
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+
     public function home(){
         $dreams= Dream::latest()->take(4)->get();
 
