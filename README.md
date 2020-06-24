@@ -7,7 +7,7 @@ Una aplicación web para guardar notas sobre tus sueños.
 
 ## Motivation
 
-After reading Julia Cameron's book "The way of the artist", and implement into my routing the "morning pages" into paper, I though that I could make an web app for that. A lot of my morning pages tells stuff about my last night dreams, and when I started this mini project the word _dream_ came into inmediatly into my head and into this repo ;).
+After reading Julia Cameron's book "The Artist's Way", and implement into my routing the "morning pages" into paper, I though that I could make an web app for that. A lot of my morning pages tells stuff about my last night dreams, and when I started this mini project the word _dream_ came into inmediatly into my head and into this repo ;).
 
 ----
 
