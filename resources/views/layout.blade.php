@@ -12,42 +12,44 @@
 
  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 <script src="{{URL::to('/js/dreams.js')}}"></script>
+<link rel="stylesheet" href="{{URL::to('/css/dreams.css')}}">
 
 
 
  <title>{{config('app.name')}}</title>
 </head>
 <body>
+
+
+
+
     <header>
 
-        <div class="navbar navbar-light bg-light shadow-sm">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+            <a class="navbar-brand" href="{{URL::to('/')}}"><strong>{{config('app.name')}}</strong></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto">
 
-          <div class="container d-flex justify-content-between">
-            <a href="{{URL::to('/')}}" class="navbar-brand d-flex align-items-center">
-               <strong>{{config('app.name')}}</strong>
-            </a>
+                @auth
 
+            <li class="nav-item">
+                <a class="button btn btn-primary" href="{{ route('dreams.create') }}" role="button">
+                     💫 Nuevo
+                </a>
+            </li>
 
+            @endauth
 
-
-
-                <!-- Authentication Links -->
-                @guest
-
-                    <div class="nav-item mr-auto">
-                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                    </div>
-
-                    @if (Route::has('register'))
-                        <div class="nav-item mr-auto">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                        </div>
-                    @endif
-                @else
-
-                <a class="" href="{{ route('dreams.create') }}" role="button">Nuevo</a>
+            </ul>
 
 
+            <ul class="navbar-nav">
+                <li class="nav-item">
+
+                    @auth
                     <div class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             {{ Auth::user()->name }} <span class="caret"></span>
@@ -64,15 +66,14 @@
                                 @csrf
                             </form>
                         </div>
-                    </div>
+                    <div>
+                    @endauth
 
-
-                @endguest
-
-
-
-            </div>
+                </li>
+            </ul>
         </div>
+            </nav>
+
 
       </header>
 

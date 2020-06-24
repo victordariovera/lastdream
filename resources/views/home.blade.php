@@ -2,7 +2,7 @@
 
 @section ('content')
 
-<div class="container my-3">
+<div class="container my-3 mt-4">
     <div class="row mb-2">
 
         @foreach ($dreams as $dream)
@@ -11,7 +11,7 @@
           <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
             <div class="col p-4 d-flex flex-column position-static">
               <h4 class="mb-0">{{  str_limit($dream->title, 30) }}</h4>
-              <div class="mb-2 text-muted">{{$dream->created_at}}</div>
+              <div class="mb-2 text-muted">{{$dream->created_at->setTimezone('America/Argentina/Buenos_Aires')}}</div>
               <p class="card-text mb-auto">{{ str_limit($dream->body, 60)}}</p>
 
 

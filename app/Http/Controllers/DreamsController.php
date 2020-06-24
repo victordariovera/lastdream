@@ -15,7 +15,7 @@ class DreamsController extends Controller
 
 
     public function home(){
-        $dreams= Dream::latest()->take(4)->get();
+        $dreams= Dream::latest()->take(14)->get();
 
         return view('home', [
             'dreams' =>  $dreams

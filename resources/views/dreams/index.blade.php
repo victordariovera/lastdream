@@ -24,7 +24,10 @@
 
               <tr>
                 <th scope="row">{{$dream->id}}</th>
-                <td>15/06/2020 20:14</td>
+
+
+                <td>{{$dream->created_at->setTimezone('America/Argentina/Buenos_Aires')}}</td>
+¡
               <td>
                 <a href="{{ route('dreams.show', $dream) }}">{{ str_limit($dream->title, 30) }}</a>
             </td>
