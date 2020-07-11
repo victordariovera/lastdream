@@ -14,7 +14,7 @@ node('master'){
             sh "echo 'Estamos deployando'"
         }
     } catch (error) {
-
+        throw(error)
     } finally {
 
     }
