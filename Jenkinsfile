@@ -13,7 +13,7 @@ node('master'){
         stage('deploy'){
             sh "echo 'Estamos deployando'"
         }
-    } catch {
+    } catch (error) {
 
     } finally {
 
