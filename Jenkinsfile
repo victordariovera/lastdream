@@ -9,9 +9,6 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh '''apt-get update -q
-                apt-get install git -y
-                '''
         sh '''
                     echo $USER
                     php -r "copy(\'https://getcomposer.org/installer\', \'composer-setup.php\');"
@@ -22,6 +19,9 @@ pipeline {
                     php composer.phar install --no-interaction
                     ls -la
                     vendor/bin/phpunit
+                '''
+        sh '''apt-get update -q
+                apt-get install git -y
                 '''
       }
     }
