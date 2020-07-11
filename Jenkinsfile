@@ -26,5 +26,11 @@ pipeline {
       }
     }
 
+    stage('deploy') {
+      steps {
+        sh 'echo \'Hola como estan!\''
+      }
+    }
+
   }
 }
