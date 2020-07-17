@@ -11,7 +11,7 @@ After reading Julia Cameron's book "The Artist's Way", and implement into my rou
 
 ----
 
-Después de leer el libro de Julia Camero "El camino del Artista", e implementar en mi rutina diaria las "páginas de la mañana" en papel, pensé que podria hacer una aplicación web para eso. Muchas de mis páginas de la mañana cuentan cosas acerca de los sueños de mi noche anterior y cuando comencé con este mini proyecto la palabra _sueño_ (dream) vino inmediatamente a mi cabeza y a este repositorio. ;) .
+Después de leer el libro de Julia Camero "El camino del Artista", e implementar en mi rutina diaria las "páginas de la mañana" en papel, pensé que podria hacer una aplicación web para eso. Muchas de mis páginas de la mañana cuentan cosas acerca de los sueños de mi noche anterior y cuando comencé con este mini proyecto la palabra _sueño_ (dream) vino inmediatamente a mi cabeza y a este repositorio. ;) ..
 
 
 
