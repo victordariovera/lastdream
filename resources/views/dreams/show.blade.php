@@ -15,7 +15,7 @@
 
 
 <p></p>
-        <p>
+        <p class="textformat">
 
             {{ $dream->body }}
 
