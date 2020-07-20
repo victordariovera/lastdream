@@ -2,5 +2,6 @@ body {
     padding-top: 56px;
  }
  .textformat{
+    word-wrap: break-word;
     white-space: pre-wrap;
  }
